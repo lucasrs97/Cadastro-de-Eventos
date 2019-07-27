@@ -1,13 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 	<head>
 		<title>Aprendendo Spring Boot</title>
 		<meta charset="UTF-8" />
+		
+		<!-- INÍCIO IMPORTAÇÃO NECESSÁRIA PARA UTILIZAÇÃO DO MATERIALIZE -->
+		
+		<!--Import Google Icon Font-->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+		<!--Import materialize.css-->
+		<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+		<!--Let browser know website is optimized for mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		
+		<!-- FIM IMPORTAÇÃO NECESSÁRIA PARA UTILIZAÇÃO DO MATERIALIZE -->
 	</head>
 
 	<body>
 
-		<h3>"Olá, Mundo" com Spring Boot!</h3>
+		<h2>Lista de Eventos</h2>
+		<a href="/cadastrarEvento" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Cadastrar Evento</a>
+			
+		<table class="container">
+			<thead>
+				<tr>
+					<th>Data</th>
+					<th>Horário</th>
+					<th>Local</th>
+					<th>Nome</th>
+				</tr>
+			</thead>
+				
+			<tbody>
+				<tr th:each="evento : ${eventos}">
+					<td><span th:text="${evento.data}"></span></td>
+					<td><span th:text="${evento.horario}"></span></td>
+					<td><span th:text="${evento.local}"></span></td>
+					<td><span th:text="${evento.nome}"></span></td>
+				</tr>
+			</tbody>	
+		</table>
 
+		
+		<!-- INÍCIO IMPORTAÇÃO NECESSÁRIA PARA UTILIZAÇÃO DO MATERIALIZE -->
+		
+		<!--JavaScript at end of body for optimized loading-->
+		<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+		
+		<!-- FIM IMPORTAÇÃO NECESSÁRIA PARA UTILIZAÇÃO DO MATERIALIZE -->
 	</body>
 </html>
